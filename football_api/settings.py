@@ -127,3 +127,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# REST Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+# JWT settings
+SIMPLE_JWT = {
+    'REFRESH_TOKEN_LIFETIME': timedelta(minutes=os.getenv('JWT_TOKEN_LIFETIME', 30)),
+    'ROTATE_REFRESH_TOKENS': True,
+}
+
+# football-data.org token
+FOOTBALL_DATA_TOKEN = os.environ['FOOTBALL_DATA_TOKEN']
+FOOTBALL_DATA_COMPETITION_ID = os.getenv('FOOTBALL_DATA_COMPETITION_ID', 2021)
