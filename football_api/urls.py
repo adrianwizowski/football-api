@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('football_api.auth.urls')),
     path('user/', include('football_api.users.urls')),
+    path('api/', include('football_api.api.urls')),
 ]
